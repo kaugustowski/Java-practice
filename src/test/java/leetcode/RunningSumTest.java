@@ -11,25 +11,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RunningSumTest {
 
-    RunningSum runningSum;
+    JewelsAndStones jewelsAndStones;
 
     @BeforeEach
     void setUp() {
-        runningSum = new RunningSum();
+        jewelsAndStones = new JewelsAndStones();
     }
 
     @ParameterizedTest
     @MethodSource("provideInput")
-    void solution(int [] input, int [] expected){
-        int [] actual = runningSum.runningSum(input);
+    void solution(String jewels, String stones, int expected){
+        int actual = jewelsAndStones.numJewelsInStones(jewels, stones);
         assertThat(actual).isEqualTo(expected);
     }
 
     private static Stream<Arguments> provideInput() {
         return Stream.of(
-                Arguments.of(new int[]{1,2,3,4}, new int[]{1,3,6,10}),
-                Arguments.of(new int[]{1,1,1,1,1}, new int[]{1,2,3,4,5}),
-                Arguments.of(new int[]{3,1,2,10,1}, new int[]{3,4,6,16,17})
+                Arguments.of("aA", "aAAbbbb", 3),
+                Arguments.of("z", "ZZ", 0),
+                Arguments.of("abcDEF", "aabbbaaccDDDdddeeeEffFzxcZXC", 15)
         );
     }
 
