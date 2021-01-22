@@ -8,21 +8,20 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RunningSumTest {
 
-    RunningSum subtractProductAndSum;
+    RunningSum runningSum;
 
     @BeforeEach
     void setUp() {
-        subtractProductAndSum = new RunningSum();
+        runningSum = new RunningSum();
     }
 
     @ParameterizedTest
     @MethodSource("provideInput")
     void solution(int [] input, int [] expected){
-        int [] actual = subtractProductAndSum.runningSum(input);
+        int [] actual = runningSum.runningSum(input);
         assertThat(actual).isEqualTo(expected);
     }
 
