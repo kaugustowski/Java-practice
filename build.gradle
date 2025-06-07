@@ -10,7 +10,12 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.assertj:assertj-core:3.27.3")
-    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
-    implementation("com.google.guava:guava:33.4.8-jre")
+    testImplementation platform('org.junit:junit-bom:5.10.2') // or latest stable
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core:3.27.3'
+    implementation 'com.google.guava:guava:33.4.8-jre'
+}
+
+test {
+    useJUnitPlatform()
 }

@@ -22,7 +22,7 @@ public class BestTimeToBuyAndSellStock2Test {
         Arguments.of(new int[]{7, 6, 4, 3, 1}, 0),
         Arguments.of(new int[]{1, 5, 3, 7, 2, 8}, 14),
         Arguments.of(new int[]{10, 22, 5, 75, 65, 80}, 97),
-        Arguments.of(new int[]{100, 180, 260, 310, 40, 535, 695}, 1095),
+        Arguments.of(new int[]{100, 180, 260, 310, 40, 535, 695}, 865),
         Arguments.of(new int[]{}, 0),
         Arguments.of(new int[]{1}, 0),
         Arguments.of(new int[]{1, 1}, 0)
