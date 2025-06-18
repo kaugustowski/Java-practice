@@ -6,6 +6,11 @@ package leetcode;
 
 public class SumOfNodesWithEvenValuedGrandparent {
     public int sumEvenGrandparent(TreeNode root) {
+
+        if(root == null) {
+            return 0;
+        }
+
         return helper(root, root.left, 0)+helper(root, root.right, 0);
     }
 
@@ -27,15 +32,3 @@ public class SumOfNodesWithEvenValuedGrandparent {
     }
 }
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
