@@ -2,18 +2,47 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    junitVersion = '5.11.0'
+    assertjVersion = '3.26.0'
+    guavaVersion = '33.2.1-jre'
+    lombokVersion = '1.18.34'
+    mockitoVersion = '5.12.0'
+}
+
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.2') // or latest stable
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.assertj:assertj-core:3.27.3'
-    implementation 'com.google.guava:guava:33.4.8-jre'
+    // Testing
+    testImplementation platform("org.junit:junit-bom:${junitVersion}")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    
+    // Assertions
+    testImplementation "org.assertj:assertj-core:${assertjVersion}"
+    
+    // Utilities
+    implementation "com.google.guava:guava:${guavaVersion}"
+    
+    // Development
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    
+    // Mocking
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
 }
 
 test {
